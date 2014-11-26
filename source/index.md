@@ -21,39 +21,6 @@ search: true
 Welcome to Hola Vecino's API.
 Hola Vecino is an application that intends to unite the people by neighborhoods, creating an application that eases the relationship between them.
 
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace `meowmeowmeow` with your personal API key.
-</aside>
-
 # Users
 
 ## Create a User
@@ -333,8 +300,8 @@ api.kittens.get(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/3"
-  -H "Authorization: meowmeowmeow"
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://api.holavecinoapi.dev/posts
 ```
 
 > The above command returns JSON structured like this:
@@ -435,16 +402,9 @@ api = Kittn::APIClient.authorize!('meowmeowmeow')
 api.kittens.get(4)
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
 ```shell
-curl "http://example.com/api/kittens/3"
-  -H "Authorization: meowmeowmeow"
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://api.holavecinoapi.dev/posts
 ```
 
 > The above command returns JSON structured like this:
