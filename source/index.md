@@ -4,7 +4,6 @@ title: API Reference
 language_tabs:
   - shell
   - ruby
-  - python
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -55,20 +54,6 @@ address_attributes[:inner_number]| Attribute inside the address_attributes
 
 ## Get a Specific User
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(4)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization: H7QyAxevRRVHrkbLN9S-' \
 http://api.holavecinoapi.dev/users/25
@@ -116,20 +101,6 @@ ID | The ID of the user to retrieve
 
 
 ## Get Current user's neighbors
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(4)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
@@ -236,20 +207,6 @@ This endpoint retrieves the current user's neighbors.
 
 ## Get a neighborhood profile
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(4)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
 http://api.holavecinoapi.dev/neighborhoods/1
@@ -285,19 +242,6 @@ This endpoint retrieves a specific user.
 
 ## Get all posts in the current neighborhood
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(4)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
@@ -395,13 +339,6 @@ This endpoint retrieves all posts of his/her neighborhood.
 
 ## Create a Post
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(4)
-```
-
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
 http://api.holavecinoapi.dev/posts
@@ -410,26 +347,7 @@ http://api.holavecinoapi.dev/posts
 > The above command returns JSON structured like this:
 
 ```json
-{
-   "user":
-   {
-       "id": 5,
-       "email": "maudie@schimmel.us",
-       "first_name": null,
-       "last_name": null,
-       "auth_token": "mgQJFuLiQRHjCjWmdscr",
-       "avatar_url": null,
-       "phone_number": null,
-       "cellphone": null,
-       "address":
-       {
-           "id": 2,
-           "street_name": "Senger Spring",
-           "outer_number": "75053",
-           "inner_number": "Apt. 679"
-       }
-   }
-   }
+{"comment"=>{"comment"=>"Repellendus sed consequuntur velit quaerat libero tenetur.", "title"=>"rerum"}, "post_id"=>"1", "controller"=>"api/v1/comments", "action"=>"create"}
 ```
 
 This endpoint retrieves a specific user.
@@ -442,7 +360,9 @@ This endpoint retrieves a specific user.
 
 Parameter | Description
 --------- | -----------
-Content | Text inside the post
+Comment* | Text inside the comment
+Title | Title of comment
+Post_id | Id of the post being commented on
 
 
 
