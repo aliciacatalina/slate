@@ -51,12 +51,15 @@ address_attributes[:inner_number]| Attribute inside the address_attributes
 {:first_name=>"Loma", :last_name=>"Mohr", :phone_number=>"(553)757-4987 x54512", :email=>"colby@friesen.com", :password=>"12345678", :password_confirmation=>"12345678", :neighborhood_id=>25, :address_attributes=>{:street_name=>"Raquel Ranch", :outer_number=>"7216", :inner_number=>"Apt. 739"}}
 ```
 
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/users/<ID>`
 
 ## Get a Specific User
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization: H7QyAxevRRVHrkbLN9S-' \
-http://api.holavecinoapi.dev/users/25
+http://holavecino-dev.herokuapp.com/api/users/25
 ```
 
 > The above command returns JSON structured like this:
@@ -91,7 +94,7 @@ This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`GET http://example.com/users/<ID>`
+`GET http://holavecino-dev.herokuapp.com/api/users/<ID>`
 
 ### URL Parameters
 
@@ -104,7 +107,7 @@ ID | The ID of the user to retrieve
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
-http://api.holavecinoapi.dev/neighbors
+http://holavecino-dev.herokuapp.com/api/neighbors
 ```
 
 > The above command returns JSON structured like this:
@@ -201,7 +204,7 @@ This endpoint retrieves the current user's neighbors.
 
 ### HTTP Request
 
-`GET http://example.com/neighbors`
+`GET http://holavecino-dev.herokuapp.com/api/neighbors`
 
 # Neighborhood
 
@@ -209,7 +212,7 @@ This endpoint retrieves the current user's neighbors.
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' \
-http://api.holavecinoapi.dev/neighborhoods
+http://holavecino-dev.herokuapp.com/api/neighborhoods
 ```
 > The above command returns JSON structured like this:
 
@@ -304,12 +307,18 @@ http://api.holavecinoapi.dev/neighborhoods
 There is no need for authentication to show this endpoint.
 
 This endpoint retrieves all neighborhoods on the server.
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+Search | String to be search in the neighborhood's name
+
 
 ## Get a neighborhood profile
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
-http://api.holavecinoapi.dev/neighborhoods/1
+http://holavecino-dev.herokuapp.com/api/neighborhoods/1
 ```
 
 > The above command returns JSON structured like this:
@@ -335,7 +344,7 @@ This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`GET http://example.com/neighborhood/<ID>`
+`GET http://holavecino-dev.herokuapp.com/api/neighborhood/<ID>`
 
 
 # Post
@@ -345,7 +354,7 @@ This endpoint retrieves a specific user.
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
-http://api.holavecinoapi.dev/posts
+http://holavecino-dev.herokuapp.com/api/posts
 ```
 
 > The above command returns JSON structured like this:
@@ -434,14 +443,14 @@ This endpoint retrieves all posts of his/her neighborhood.
 
 ### HTTP Request
 
-`GET http://example.com/posts`
+`GET http://holavecino-dev.herokuapp.com/api/posts`
 
 
 ## Create a Post
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
-http://api.holavecinoapi.dev/posts
+http://holavecino-dev.herokuapp.com/api/posts
 ```
 
 > The above command returns JSON structured like this:
@@ -454,7 +463,7 @@ This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST http://holavecino-dev.herokuapp.com/api/post`
 
 ### URL Parameters
 
