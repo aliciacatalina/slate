@@ -87,7 +87,7 @@ http://api.holavecinoapi.dev/users/25
 
 This endpoint retrieves a specific user.
 
-<aside class="warning">A user can only see its own profile, no matter what id is sent.</aside>
+<aside class="notice">A user can only see its own profile, no matter what id is sent.</aside>
 
 ### HTTP Request
 
@@ -197,13 +197,113 @@ http://api.holavecinoapi.dev/neighbors
 
 This endpoint retrieves the current user's neighbors.
 
-<aside class="warning">A user can only see profiles of people on the same neighborhood.</aside>
+<aside class="notice">A user can only see profiles of people on the same neighborhood.</aside>
 
 ### HTTP Request
 
 `GET http://example.com/neighbors`
 
 # Neighborhood
+
+## Neighborhoods index
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' \
+http://api.holavecinoapi.dev/neighborhoods
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+    "neighborhoods": [
+        {
+            "id": 16,
+            "name": "Alexanne Orchard",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 17,
+            "name": "Alexanne Orchard",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 65,
+            "name": "Armani Oval",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 64,
+            "name": "Armani Oval",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 22,
+            "name": "Birdie Landing",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 21,
+            "name": "Bogisich Glens",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 60,
+            "name": "Brekke Forge",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 61,
+            "name": "Brekke Forge",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 18,
+            "name": "Carlo Union",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 3,
+            "name": "Chasity Islands",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 2,
+            "name": "Chasity Islands",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 1,
+            "name": "Col. Test",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 9,
+            "name": "Elliott Heights",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 45,
+            "name": "Ervin Manors",
+            "city_name": "Monterrey"
+        },
+        {
+            "id": 46,
+            "name": "Ervin Manors",
+            "city_name": "Monterrey"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "per_page": 15,
+            "total_pages": 5,
+            "total_objects": 65
+        }
+    }
+}
+```
+There is no need for authentication to show this endpoint.
+
+This endpoint retrieves all neighborhoods on the server.
 
 ## Get a neighborhood profile
 
@@ -231,7 +331,7 @@ http://api.holavecinoapi.dev/neighborhoods/1
 
 This endpoint retrieves a specific user.
 
-<aside class="warning">A user can only see the profile of his/her own neighborhood.</aside>
+<aside class="notice">A user can only see the profile of his/her own neighborhood.</aside>
 
 ### HTTP Request
 
