@@ -114,8 +114,10 @@ Hola Vecino is an application that intends to unite the people by neighborhoods,
 </blockquote>
 <pre><code class="highlight json"><span class="p">{:</span><span class="err">first_name=&gt;</span><span class="s2">"Loma"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">last_name=&gt;</span><span class="s2">"Mohr"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">phone_number=&gt;</span><span class="s2">"(553)757-4987 x54512"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">email=&gt;</span><span class="s2">"colby@friesen.com"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">password=&gt;</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">password_confirmation=&gt;</span><span class="s2">"12345678"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">neighborhood_id=&gt;</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">address_attributes=&gt;</span><span class="p">{:</span><span class="err">street_name=&gt;</span><span class="s2">"Raquel Ranch"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">outer_number=&gt;</span><span class="s2">"7216"</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="err">inner_number=&gt;</span><span class="s2">"Apt. 739"</span><span class="p">}}</span><span class="w">
 </span></code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/users/&lt;ID&gt;</code></p>
 <h2 id='get-a-specific-user'>Get a Specific User</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization: H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
-http://api.holavecinoapi.dev/users/25
+http://holavecino-dev.herokuapp.com/api/users/25
 </code></pre>
 
 <blockquote>
@@ -148,7 +150,7 @@ http://api.holavecinoapi.dev/users/25
 
 <p><aside class="notice">A user can only see its own profile, no matter what id is sent.</aside></p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/users/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/users/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -162,7 +164,7 @@ http://api.holavecinoapi.dev/users/25
 </tr>
 </tbody></table>
 <h2 id='get-current-user39s-neighbors'>Get Current user&rsquo;s neighbors</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
-http://api.holavecinoapi.dev/neighbors
+http://holavecino-dev.herokuapp.com/api/neighbors
 </code></pre>
 
 <blockquote>
@@ -257,9 +259,9 @@ http://api.holavecinoapi.dev/neighbors
 
 <p><aside class="notice">A user can only see profiles of people on the same neighborhood.</aside></p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/neighbors</code></p>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/neighbors</code></p>
 <h1 id='neighborhood'>Neighborhood</h1><h2 id='neighborhoods-index'>Neighborhoods index</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> <span class="se">\</span>
-http://api.holavecinoapi.dev/neighborhoods
+http://holavecino-dev.herokuapp.com/api/neighborhoods
 </code></pre>
 
 <blockquote>
@@ -356,8 +358,20 @@ http://api.holavecinoapi.dev/neighborhoods
 <p>There is no need for authentication to show this endpoint.</p>
 
 <p>This endpoint retrieves all neighborhoods on the server.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Search</td>
+<td>String to be search in the neighborhood&rsquo;s name</td>
+</tr>
+</tbody></table>
 <h2 id='get-a-neighborhood-profile'>Get a neighborhood profile</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
-http://api.holavecinoapi.dev/neighborhoods/1
+http://holavecino-dev.herokuapp.com/api/neighborhoods/1
 </code></pre>
 
 <blockquote>
@@ -381,9 +395,9 @@ http://api.holavecinoapi.dev/neighborhoods/1
 
 <p><aside class="notice">A user can only see the profile of his/her own neighborhood.</aside></p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/neighborhood/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/neighborhood/&lt;ID&gt;</code></p>
 <h1 id='post'>Post</h1><h2 id='get-all-posts-in-the-current-neighborhood'>Get all posts in the current neighborhood</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
-http://api.holavecinoapi.dev/posts
+http://holavecino-dev.herokuapp.com/api/posts
 </code></pre>
 
 <blockquote>
@@ -470,9 +484,9 @@ http://api.holavecinoapi.dev/posts
 
 <p>This endpoint retrieves all posts of his/her neighborhood.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/posts</code></p>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/posts</code></p>
 <h2 id='create-a-post'>Create a Post</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
-http://api.holavecinoapi.dev/posts
+http://holavecino-dev.herokuapp.com/api/posts
 </code></pre>
 
 <blockquote>
@@ -483,7 +497,7 @@ http://api.holavecinoapi.dev/posts
 
 <p>This endpoint retrieves a specific user.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/post</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
