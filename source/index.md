@@ -24,28 +24,23 @@ Hola Vecino is an application that intends to unite the people by neighborhoods,
 
 ## Create a User
 
-Parameter | Description
---------- | -----------
-first_name* | First name of the user
-last_name* | Last name of the user
-phone_number* | Phone number of the user
-cellphone | Secondary number of the user
-email* | Email of the user
-avatar | Profile picture of the user(url)
-password* | Password set by the user
-password_confirmation* | Password set by the user
-address_attributes* | A key in the hash to create the address on the same request
-address_attributes[:street_name]* | A key in the hash to create the address on the same request
-address_attributes[:outer_number]\* | Attribute inside the address_attributes
-address_attributes[:inner_number]| Attribute inside the address_attributes
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- | -----------
+first_name | First name of the user | String | Yes
+last_name | Last name of the user | String | Yes
+phone_number | Phone number of the user | String | Yes
+cellphone | Secondary number of the user | String | No
+email | Email of the user | String (email format) | Yes
+avatar | Profile picture of the user(url) | File | Yes
+password | Password set by the user | String minimum 8 characters long | Yes
+password_confirmation | Password set by the user | Same as password | Yes
+address_attributes | A key in the hash to create the address on the same request | Json object | Yes
+address_attributes[:street_name] | A key in the hash to create the address on the same request | String | Yes
+address_attributes[:outer_number] | Attribute inside the address_attributes | String | Yes
+address_attributes[:inner_number]| Attribute inside the address_attributes | String | No
 
+> The format received by the API has this format:
 
-<aside class="notice">
-* Required.
-</aside>
-
-
-> The json request would be structured like this:
 
 ```json
 {:first_name=>"Loma", :last_name=>"Mohr", :phone_number=>"(553)757-4987 x54512", :email=>"colby@friesen.com", :password=>"12345678", :password_confirmation=>"12345678", :neighborhood_id=>25, :address_attributes=>{:street_name=>"Raquel Ranch", :outer_number=>"7216", :inner_number=>"Apt. 739"}}
@@ -98,9 +93,9 @@ This endpoint retrieves a specific user.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the user to retrieve
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- |-----------
+ID | The ID of the user to retrieve | Integer | Yes
 
 
 ## Get Current user's neighbors
@@ -307,11 +302,12 @@ http://holavecino-dev.herokuapp.com/api/neighborhoods
 There is no need for authentication to show this endpoint.
 
 This endpoint retrieves all neighborhoods on the server.
+
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-Search | String to be search in the neighborhood's name
+Parameter | Description | Type      | Required
+--------- | ----------- | --------- |--------- |
+search | String to be search in the neighborhood's name | lowercase string | No
 
 
 ## Get a neighborhood profile
@@ -346,6 +342,11 @@ This endpoint retrieves a specific user.
 
 `GET http://holavecino-dev.herokuapp.com/api/neighborhood/<ID>`
 
+### URL Parameters
+
+Parameter | Description | Type      | Required
+--------- | ----------- | --------- |--------- |
+id | Any number will retrieve the current user's neighborhood | integer | Yes
 
 # Post
 
@@ -453,6 +454,84 @@ curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVH
 http://holavecino-dev.herokuapp.com/api/posts
 ```
 
+
+> The format received by the API has this format:
+
+
+```json
+{"post"=>{"content"=>"Nihil eveniet quis laborum iste voluptatibus sed excepturi."}, "controller"=>"api/v1/posts", "action"=>"create"}
+```
+
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/post`
+
+### URL Parameters
+
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- | -----------
+content | Text inside the post | Text | Yes
+id | Id of the post being commented on | Integer |Yes
+photo | Picture to be posted  | File | No
+category_id | Id of the category the post belongs to | Integer | No
+
+## Like a Post
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/posts/<ID>/toggle_like
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{"id"=>"12", "controller"=>"api/v1/posts", "action"=>"toggle_like", "post"=>{}}
+```
+
+This endpoint adds a like or removes the like of the current user.
+
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/posts/<ID>/toggle_like`
+
+### URL Parameters
+
+Parameter | Description | Type      | Required
+--------- | ----------- | --------- | -----------
+id | Id of the post being commented on | Integer | Yes
+
+## Flag a Post
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/posts/<ID>/toggle_flag
+```
+
+> The format received by the API has this format:
+
+```json
+{"id"=>"12", "controller"=>"api/v1/posts", "action"=>"toggle_flag", "post"=>{}}
+```
+
+This endpoint retrieves a specific user.
+
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/posts/<ID>/toggle_flag`
+
+### URL Parameters
+
+Parameter | Description | Type      | Required
+--------- | ----------- | --------- | -----------
+id | Id of the post being commented on | Integer | Yes
+
+## Delete a Post
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/posts/<ID>
+```
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -463,15 +542,145 @@ This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`POST http://holavecino-dev.herokuapp.com/api/post`
+`DELETE http://holavecino-dev.herokuapp.com/api/posts/<ID>`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-Comment* | Text inside the comment
-Title | Title of comment
-Post_id | Id of the post being commented on
+Parameter | Description | Type      | Required
+--------- | ----------- | --------- | -----------
+id | Id of the post being commented on | Integer | Yes
 
+
+# Comment
+
+## Get all comments from a post
+
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/comments/
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "posts":
+   [
+       {
+           "id": 1,
+           "content": "Omnis ea eius quod eos.",
+           "user":
+           {
+               "id": 34,
+               "email": "esmeralda.emard@schmitt.co.uk",
+               "first_name": "Marshall",
+               "last_name": "Johnston",
+               "avatar_url": "/uploads/user/avatar/34/avatar.png"
+           }
+       },
+       {
+           "id": 2,
+           "content": "Id nihil saepe eum laboriosam.",
+           "user":
+           {
+               "id": 35,
+               "email": "stuart_rolfson@ritchie.com",
+               "first_name": "Issac",
+               "last_name": "Murray",
+               "avatar_url": "/uploads/user/avatar/35/avatar.png"
+           }
+       },
+       {
+           "id": 3,
+           "content": "Excepturi voluptatem inventore nam aperiam sunt et autem vitae.",
+           "user":
+           {
+               "id": 36,
+               "email": "jayde_oconner@lakinkertzmann.us",
+               "first_name": "Jennie",
+               "last_name": "Rohan",
+               "avatar_url": "/uploads/user/avatar/36/avatar.png"
+           }
+       },
+       {
+           "id": 4,
+           "content": "Velit omnis dignissimos molestias illo.",
+           "user":
+           {
+               "id": 37,
+               "email": "erna.durgan@zulauf.name",
+               "first_name": "Harry",
+               "last_name": "Bahringer",
+               "avatar_url": "/uploads/user/avatar/37/avatar.png"
+           }
+       },
+       {
+           "id": 5,
+           "content": "Inventore commodi corrupti iure earum quo.",
+           "user":
+           {
+               "id": 38,
+               "email": "leda@powlowskigraham.name",
+               "first_name": "Marquise",
+               "last_name": "Leffler",
+               "avatar_url": "/uploads/user/avatar/38/avatar.png"
+           }
+       },
+       {
+           "id": 6,
+           "content": "Quo inventore cupiditate non velit velit ut ut.",
+           "user":
+           {
+               "id": 39,
+               "email": "edward@schuppe.info",
+               "first_name": "Reynold",
+               "last_name": "Cartwright",
+               "avatar_url": "/uploads/user/avatar/39/avatar.png"
+           }
+       }
+   ]
+}
+```
+
+This endpoint retrieves all posts of his/her neighborhood.
+
+### HTTP Request
+
+`GET http://holavecino-dev.herokuapp.com/api/comments?post_id=<POST_ID>`
+
+### URL Parameters
+
+Parameter | Description | Type | Required
+--------- | ----------- | ----------- | -----------
+Post_id | Id of the post's comments you want to retrieve | Integer | Yes
+
+
+## Create a comment
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/comments/
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{"comment"=>{"comment"=>"Repellendus sed consequuntur velit quaerat libero tenetur.", "title"=>"rerum"}, "post_id"=>"1", "controller"=>"api/v1/comments", "action"=>"create"}
+```
+
+This endpoint retrieves a specific user.
+
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/comments/<ID>`
+
+### URL Parameters
+
+Parameter | Description | Type | Required
+--------- | ----------- |----------- | -----------
+Comment | Text inside the comment | Text | Yes
+Title | Title of comment | String | No
+Post_id | Id of the post being commented on | Integer | Yes
 
 
