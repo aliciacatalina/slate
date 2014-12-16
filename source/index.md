@@ -72,6 +72,7 @@ http://holavecino-dev.herokuapp.com/api/users/25
        "phone_number": "123456789",
        "cellphone": null,
        "neighborhood_id": 32,
+       "is_leader?": true,
        "address":
        {
            "id": 28,
@@ -362,85 +363,116 @@ http://holavecino-dev.herokuapp.com/api/posts
 
 ```json
 {
-   "posts":
-   [
-       {
-           "id": 1,
-           "content": "Omnis ea eius quod eos.",
-           "user":
-           {
-               "id": 34,
-               "email": "esmeralda.emard@schmitt.co.uk",
-               "first_name": "Marshall",
-               "last_name": "Johnston",
-               "avatar_url": "/uploads/user/avatar/34/avatar.png"
-           }
-       },
-       {
-           "id": 2,
-           "content": "Id nihil saepe eum laboriosam.",
-           "user":
-           {
-               "id": 35,
-               "email": "stuart_rolfson@ritchie.com",
-               "first_name": "Issac",
-               "last_name": "Murray",
-               "avatar_url": "/uploads/user/avatar/35/avatar.png"
-           }
-       },
-       {
-           "id": 3,
-           "content": "Excepturi voluptatem inventore nam aperiam sunt et autem vitae.",
-           "user":
-           {
-               "id": 36,
-               "email": "jayde_oconner@lakinkertzmann.us",
-               "first_name": "Jennie",
-               "last_name": "Rohan",
-               "avatar_url": "/uploads/user/avatar/36/avatar.png"
-           }
-       },
-       {
-           "id": 4,
-           "content": "Velit omnis dignissimos molestias illo.",
-           "user":
-           {
-               "id": 37,
-               "email": "erna.durgan@zulauf.name",
-               "first_name": "Harry",
-               "last_name": "Bahringer",
-               "avatar_url": "/uploads/user/avatar/37/avatar.png"
-           }
-       },
-       {
-           "id": 5,
-           "content": "Inventore commodi corrupti iure earum quo.",
-           "user":
-           {
-               "id": 38,
-               "email": "leda@powlowskigraham.name",
-               "first_name": "Marquise",
-               "last_name": "Leffler",
-               "avatar_url": "/uploads/user/avatar/38/avatar.png"
-           }
-       },
-       {
-           "id": 6,
-           "content": "Quo inventore cupiditate non velit velit ut ut.",
-           "user":
-           {
-               "id": 39,
-               "email": "edward@schuppe.info",
-               "first_name": "Reynold",
-               "last_name": "Cartwright",
-               "avatar_url": "/uploads/user/avatar/39/avatar.png"
-           }
-       }
-   ]
+    "posts": [
+        {
+            "id": 2,
+            "content": "Id nihil saepe eum laboriosam.",
+            "created_at": "2014-11-25T17:05:17.906Z",
+            "likes": 0,
+            "category_name": null,
+            "liked": false,
+            "user": {
+                "id": 35,
+                "email": "stuart_rolfson@ritchie.com",
+                "short_name": "Issac Murray",
+                "avatar_url": "/uploads/user/avatar/35/avatar.png"
+            },
+            "poll": null
+        },
+        {
+            "id": 3,
+            "content": "Excepturi voluptatem inventore nam aperiam sunt et autem vitae.",
+            "created_at": "2014-11-25T17:05:19.668Z",
+            "likes": 0,
+            "category_name": null,
+            "liked": false,
+            "user": {
+                "id": 36,
+                "email": "jayde_oconner@lakinkertzmann.us",
+                "short_name": "Jennie Rohan",
+                "avatar_url": "/uploads/user/avatar/36/avatar.png"
+            },
+            "poll": null
+        },
+        {
+            "id": 4,
+            "content": "Velit omnis dignissimos molestias illo.",
+            "created_at": "2014-11-25T17:05:21.522Z",
+            "likes": 0,
+            "category_name": null,
+            "liked": false,
+            "user": {
+                "id": 37,
+                "email": "erna.durgan@zulauf.name",
+                "short_name": "Harry Bahringer",
+                "avatar_url": "/uploads/user/avatar/37/avatar.png"
+            },
+            "poll": null
+        },
+        {
+            "id": 5,
+            "content": "Inventore commodi corrupti iure earum quo.",
+            "created_at": "2014-11-25T17:05:22.711Z",
+            "likes": 0,
+            "category_name": null,
+            "liked": false,
+            "user": {
+                "id": 38,
+                "email": "leda@powlowskigraham.name",
+                "short_name": "Marquise Leffler",
+                "avatar_url": "/uploads/user/avatar/38/avatar.png"
+            },
+            "poll": null
+        },
+        {
+            "id": 6,
+            "content": "Quo inventore cupiditate non velit velit ut ut.",
+            "created_at": "2014-11-25T17:05:23.317Z",
+            "likes": 0,
+            "category_name": null,
+            "liked": false,
+            "user": {
+                "id": 39,
+                "email": "edward@schuppe.info",
+                "short_name": "Reynold Cartwright",
+                "avatar_url": "/uploads/user/avatar/39/avatar.png"
+            },
+            "poll": {
+                "id": 1,
+                "question": "MyText",
+                "created_at": "2014-12-11T21:13:12.551Z",
+                "upvotes_percent": 50,
+                "downvotes_percent": 50
+            }
+        },
+        {
+            "id": 1,
+            "content": "Omnis ea eius quod eos.",
+            "created_at": "2014-11-24T22:12:42.393Z",
+            "likes": 1,
+            "category_name": "Crime and Security",
+            "liked": false,
+            "user": {
+                "id": 34,
+                "email": "esmeralda.emard@schmitt.co.uk",
+                "short_name": "Marshall Johnston",
+                "avatar_url": "/uploads/user/avatar/34/avatar.png"
+            },
+            "poll": null
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "per_page": 25,
+            "total_pages": 1,
+            "total_objects": 6
+        }
+    }
 }
 ```
 
 This endpoint retrieves all posts of his/her neighborhood.
+The polls are embedded on the post, an example is Post with id 6.
 
 ### HTTP Request
 
@@ -550,6 +582,51 @@ Parameter | Description | Type      | Required
 --------- | ----------- | --------- | -----------
 id | Id of the post being commented on | Integer | Yes
 
+# Poll
+Poll works as an extension to Post, so a post is created with a each post
+
+## Create a Poll
+
+> The format received by the API has this format:
+
+```json
+{"poll"=>{"question"=>"Lorem ipsum thomas?", "post_attributes"=>{"content"=>"Nobis quo quis culpa et ut alias.", "category_id"=>"1"}}, "controller"=>"api/v1/polls", "action"=>"create"}
+```
+
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/poll`
+
+### URL Parameters
+
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- | -----------
+content | Text inside the post | Text | Yes
+id | Id of the post being commented on | Integer |Yes
+photo | Picture to be posted  | File | No
+category_id | Id of the category the post belongs to | Integer | No
+
+## Upvote a Poll
+
+> The format received by the API has this format:
+```json
+{"id"=>"4", "controller"=>"api/v1/polls", "action"=>"upvote", "poll"=>{}}
+```
+
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- | -----------
+id | Id of the post being commented on | Integer |Yes
+
+## Downvote a Poll
+
+> The format received by the API has this format:
+```json
+{"id"=>"4", "controller"=>"api/v1/polls", "action"=>"downvote", "poll"=>{}}
+```
+
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- | -----------
+id | Id of the post being commented on | Integer |Yes
 
 # Comment
 
