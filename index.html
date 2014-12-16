@@ -157,6 +157,7 @@ http://holavecino-dev.herokuapp.com/api/users/25
        </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"cellphone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
        </span><span class="s2">"neighborhood_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
        </span><span class="s2">"address"</span><span class="p">:</span><span class="w">
        </span><span class="p">{</span><span class="w">
            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
@@ -450,85 +451,116 @@ http://holavecino-dev.herokuapp.com/api/posts
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-   </span><span class="s2">"posts"</span><span class="p">:</span><span class="w">
-   </span><span class="p">[</span><span class="w">
-       </span><span class="p">{</span><span class="w">
-           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omnis ea eius quod eos."</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esmeralda.emard@schmitt.co.uk"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marshall"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnston"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/34/avatar.png"</span><span class="w">
-           </span><span class="p">}</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-       </span><span class="p">{</span><span class="w">
-           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Id nihil saepe eum laboriosam."</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stuart_rolfson@ritchie.com"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Issac"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Murray"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/35/avatar.png"</span><span class="w">
-           </span><span class="p">}</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-       </span><span class="p">{</span><span class="w">
-           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excepturi voluptatem inventore nam aperiam sunt et autem vitae."</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jayde_oconner@lakinkertzmann.us"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jennie"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rohan"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/36/avatar.png"</span><span class="w">
-           </span><span class="p">}</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-       </span><span class="p">{</span><span class="w">
-           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Velit omnis dignissimos molestias illo."</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"erna.durgan@zulauf.name"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bahringer"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/37/avatar.png"</span><span class="w">
-           </span><span class="p">}</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-       </span><span class="p">{</span><span class="w">
-           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inventore commodi corrupti iure earum quo."</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leda@powlowskigraham.name"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marquise"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leffler"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/38/avatar.png"</span><span class="w">
-           </span><span class="p">}</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-       </span><span class="p">{</span><span class="w">
-           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quo inventore cupiditate non velit velit ut ut."</span><span class="p">,</span><span class="w">
-           </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
-           </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edward@schuppe.info"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reynold"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cartwright"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/39/avatar.png"</span><span class="w">
-           </span><span class="p">}</span><span class="w">
-       </span><span class="p">}</span><span class="w">
-   </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Id nihil saepe eum laboriosam."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-25T17:05:17.906Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stuart_rolfson@ritchie.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Issac Murray"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/35/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excepturi voluptatem inventore nam aperiam sunt et autem vitae."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-25T17:05:19.668Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jayde_oconner@lakinkertzmann.us"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jennie Rohan"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/36/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Velit omnis dignissimos molestias illo."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-25T17:05:21.522Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"erna.durgan@zulauf.name"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harry Bahringer"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/37/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inventore commodi corrupti iure earum quo."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-25T17:05:22.711Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leda@powlowskigraham.name"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marquise Leffler"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/38/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quo inventore cupiditate non velit velit ut ut."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-25T17:05:23.317Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edward@schuppe.info"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reynold Cartwright"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/39/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyText"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-11T21:13:12.551Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"upvotes_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"downvotes_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omnis ea eius quod eos."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-24T22:12:42.393Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crime and Security"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esmeralda.emard@schmitt.co.uk"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marshall Johnston"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/user/avatar/34/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_objects"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all posts of his/her neighborhood.</p>
+<p>This endpoint retrieves all posts of his/her neighborhood.
+The polls are embedded on the post, an example is Post with id 6.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/posts</code></p>
 <h2 id='create-a-post'>Create a Post</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
@@ -648,6 +680,96 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">DELETE http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id of the post being commented on</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h1 id='poll'>Poll</h1>
+<p>Poll works as an extension to Post, so a post is created with a each post</p>
+<h2 id='create-a-poll'>Create a Poll</h2>
+<blockquote>
+<p>The format received by the API has this format:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="s2">"poll"</span><span class="err">=&gt;{</span><span class="s2">"question"</span><span class="err">=&gt;</span><span class="s2">"Lorem ipsum thomas?"</span><span class="err">,</span><span class="w"> </span><span class="s2">"post_attributes"</span><span class="err">=&gt;{</span><span class="s2">"content"</span><span class="err">=&gt;</span><span class="s2">"Nobis quo quis culpa et ut alias."</span><span class="err">,</span><span class="w"> </span><span class="s2">"category_id"</span><span class="err">=&gt;</span><span class="s2">"1"</span><span class="err">}},</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/polls"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"create"</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/poll</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content</td>
+<td>Text inside the post</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Id of the post being commented on</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>photo</td>
+<td>Picture to be posted</td>
+<td>File</td>
+<td>No</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>Id of the category the post belongs to</td>
+<td>Integer</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h2 id='upvote-a-poll'>Upvote a Poll</h2>
+<blockquote>
+<p>The format received by the API has this format:
+<code class="prettyprint">json
+{&quot;id&quot;=&gt;&quot;4&quot;, &quot;controller&quot;=&gt;&quot;api/v1/polls&quot;, &quot;action&quot;=&gt;&quot;upvote&quot;, &quot;poll&quot;=&gt;{}}
+</code></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id of the post being commented on</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h2 id='downvote-a-poll'>Downvote a Poll</h2>
+<blockquote>
+<p>The format received by the API has this format:
+<code class="prettyprint">json
+{&quot;id&quot;=&gt;&quot;4&quot;, &quot;controller&quot;=&gt;&quot;api/v1/polls&quot;, &quot;action&quot;=&gt;&quot;downvote&quot;, &quot;poll&quot;=&gt;{}}
+</code></p>
+</blockquote>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
