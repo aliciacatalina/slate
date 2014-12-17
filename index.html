@@ -94,6 +94,12 @@ Hola Vecino is an application that intends to unite the people by neighborhoods,
 <td>Yes</td>
 </tr>
 <tr>
+<td>neighborhood_id</td>
+<td>Id of the neighborhood previously selected</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
+<tr>
 <td>password</td>
 <td>Password set by the user</td>
 <td>String minimum 8 characters long</td>
@@ -287,6 +293,16 @@ http://holavecino-dev.herokuapp.com/api/neighbors
 <p><aside class="notice">A user can only see profiles of people on the same neighborhood.</aside></p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/neighbors</code></p>
+<h2 id='pending-neighbors'>Pending Neighbors</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
+http://holavecino-dev.herokuapp.com/api/neighbors
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h1 id='neighborhood'>Neighborhood</h1><h2 id='neighborhoods-index'>Neighborhoods index</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> <span class="se">\</span>
 http://holavecino-dev.herokuapp.com/api/neighborhoods
 </code></pre>
