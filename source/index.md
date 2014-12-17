@@ -32,6 +32,7 @@ phone_number | Phone number of the user | String | Yes
 cellphone | Secondary number of the user | String | No
 email | Email of the user | String (email format) | Yes
 avatar | Profile picture of the user(url) | File | Yes
+neighborhood_id | Id of the neighborhood previously selected | Integer | Yes
 password | Password set by the user | String minimum 8 characters long | Yes
 password_confirmation | Password set by the user | Same as password | Yes
 address_attributes | A key in the hash to create the address on the same request | Json object | Yes
@@ -201,6 +202,20 @@ This endpoint retrieves the current user's neighbors.
 ### HTTP Request
 
 `GET http://holavecino-dev.herokuapp.com/api/neighbors`
+
+## Pending Neighbors
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/neighbors
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+}
+```
 
 # Neighborhood
 
