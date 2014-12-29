@@ -144,6 +144,97 @@ Hola Vecino is an application that intends to unite the people by neighborhoods,
 </span></code></pre>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/users/&lt;ID&gt;</code></p>
+<h2 id='update-a-user--approve-a-user'>Update a User | Approve a User</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>First name of the user</td>
+<td>String</td>
+<td>No</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>Last name of the user</td>
+<td>String</td>
+<td>No</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>Phone number of the user</td>
+<td>String</td>
+<td>No</td>
+</tr>
+<tr>
+<td>cellphone</td>
+<td>Secondary number of the user</td>
+<td>String</td>
+<td>No</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>Profile picture of the user(url)</td>
+<td>File</td>
+<td>No</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Password set by the user</td>
+<td>String minimum 8 characters long</td>
+<td>No</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>Password set by the user</td>
+<td>Same as password</td>
+<td>No</td>
+</tr>
+<tr>
+<td>address_attributes</td>
+<td>A key in the hash to create the address on the same request</td>
+<td>Json object</td>
+<td>No</td>
+</tr>
+<tr>
+<td>address_attributes[:street_name]</td>
+<td>A key in the hash to create the address on the same request</td>
+<td>String</td>
+<td>No</td>
+</tr>
+<tr>
+<td>address_attributes[:outer_number]</td>
+<td>Attribute inside the address_attributes</td>
+<td>String</td>
+<td>No</td>
+</tr>
+<tr>
+<td>address_attributes[:inner_number]</td>
+<td>Attribute inside the address_attributes</td>
+<td>String</td>
+<td>No</td>
+</tr>
+<tr>
+<td>approved</td>
+<td>Boolean attribute the leader can change, if a user is</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The format received by the API has this format:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="s2">"user"</span><span class="err">=&gt;{</span><span class="s2">"approved"</span><span class="err">=&gt;true},</span><span class="w"> </span><span class="s2">"id"</span><span class="err">=&gt;</span><span class="s2">"12"</span><span class="err">,</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/users"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"update"</span><span class="err">}</span><span class="w">
+
+</span></code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">PUT/PATCH http://holavecino-dev.herokuapp.com/api/users/&lt;ID&gt;</code></p>
 <h2 id='get-a-specific-user'>Get a Specific User</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization: H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
 http://holavecino-dev.herokuapp.com/api/users/25
 </code></pre>
@@ -294,15 +385,51 @@ http://holavecino-dev.herokuapp.com/api/neighbors
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/neighbors</code></p>
 <h2 id='pending-neighbors'>Pending Neighbors</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
-http://holavecino-dev.herokuapp.com/api/neighbors
+http://holavecino-dev.herokuapp.com/api/pending
 </code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marlen.torp@sawaynkoepp.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eladio Reichel"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avatar.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bryon@kassulkewuckert.biz"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Sipes"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avatar.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chyna@rutherford.name"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cathrine Mante"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avatar.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aniya_strosin@murazik.us"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payton Hilpert"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avatar.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/pending</code></p>
 <h1 id='neighborhood'>Neighborhood</h1><h2 id='neighborhoods-index'>Neighborhoods index</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> <span class="se">\</span>
 http://holavecino-dev.herokuapp.com/api/neighborhoods
 </code></pre>
@@ -712,7 +839,7 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 </tr>
 </tbody></table>
 <h1 id='poll'>Poll</h1>
-<p>Poll works as an extension to Post, so a post is created with a each post</p>
+<p>Poll works as an extension to Post, so a post is created with a each poll</p>
 <h2 id='create-a-poll'>Create a Poll</h2>
 <blockquote>
 <p>The format received by the API has this format:</p>
@@ -755,6 +882,35 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 <td>No</td>
 </tr>
 </tbody></table>
+<h2 id='get-a-specific-poll'>Get a specific poll</h2><pre><code class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quo inventore cupiditate non velit velit ut ut."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-25T17:05:23.317Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edward@schuppe.info"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reynold Cartwright"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avatar.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyText"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-11T21:13:12.551Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"upvotes_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"downvotes_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/post/&lt;ID&gt;</code></p>
 <h2 id='upvote-a-poll'>Upvote a Poll</h2>
 <blockquote>
 <p>The format received by the API has this format:
@@ -801,6 +957,33 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 <td>Yes</td>
 </tr>
 </tbody></table>
+<h1 id='category'>Category</h1><h2 id='get-all-categories'>Get all categories</h2><pre><code class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crimen y Seguridad"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clasificados"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Articulos perdidos"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recomendaciones"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/categories</code></p>
 <h1 id='comment'>Comment</h1><h2 id='get-all-comments-from-a-post'>Get all comments from a post</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
 http://holavecino-dev.herokuapp.com/api/comments/
 </code></pre>
@@ -947,6 +1130,138 @@ http://holavecino-dev.herokuapp.com/api/comments/
 <td>Yes</td>
 </tr>
 </tbody></table>
+<h1 id='tehuan-reports'>Tehuan Reports</h1><h2 id='get-all-reports-in-a-neighborhood'>Get all reports in a neighborhood</h2><pre><code class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"tehuan_reports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accidente en Miguel Aleman frente al Carls Jr"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-26T20:41:45.835Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crime and Security"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alicia@icalialabs.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alicia Gonzalez"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accidente en Miguel Aleman frente al Carls Jr"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-26T20:45:15.693Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tehuan"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alicia@icalialabs.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alicia Gonzalez"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total_objects"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the reports created on his/her neighborhood</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/tehuan_reports</code></p>
+<h2 id='create-a-tehuan-report'>Create a Tehuan Report</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
+http://holavecino-dev.herokuapp.com/api/posts
+</code></pre>
+
+<blockquote>
+<p>The format received by the API has this format:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="s2">"post"</span><span class="err">=&gt;{</span><span class="s2">"content"</span><span class="err">=&gt;</span><span class="s2">"Nihil eveniet quis laborum iste voluptatibus sed excepturi."</span><span class="err">,</span><span class="w"> </span><span class="s2">"tehuan_category"</span><span class="err">=&gt;</span><span class="s2">"ACCIDENTE"</span><span class="err">},</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/posts"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"create"</span><span class="err">}</span><span class="w">
+</span></code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/post</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content</td>
+<td>Text inside the post</td>
+<td>Text</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>photo</td>
+<td>Picture to be posted</td>
+<td>File</td>
+<td>No</td>
+</tr>
+<tr>
+<td>tehuan_category</td>
+<td>Name of the category the report belongs to</td>
+<td>String</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h2 id='get-tehuan-categories'>Get Tehuan Categories</h2><pre><code class="highlight json"><span class="p">{</span><span class="w">
+    </span><span class="s2">"tehuan_reports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"ACCIDENTE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ALCANTARILLAS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ALUMBRADO PUBLICO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AUTO ABANDONADO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AVISOS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BACHE O VIA DAÑADA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DETENCION DE BANDAS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"EMERGENCIAS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"EVENTO PUBLICO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"EXTORSION"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FALTA ELECTRICIDAD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FUGA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"HOMICIDIO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"INCENDIO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MTYMUYBIEN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"OBRAS Y/O VIA CERRADA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"OBSERVADOR CIUDADANO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"OTROS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PARQUES DESCUIDADOS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PERCEPCION DE INSEGURIDAD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PROPUESTA COMUNIDAD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PROPUESTA SEGURIDAD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PROPUESTA SERV PUBLICOS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PROPUESTA VIALIDAD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RECOLECCION DE BASURA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ROBO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ROBO AUTO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SECUESTRO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SEMAFORO DESCOMPUESTO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SITUACION DE RIESGO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SOSPECHOSO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"VIALIDAD"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the tehuan categories a tehuan report can have.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">GET http://holavecino-dev.herokuapp.com/api/tehuan_categories</code></p>
 
           <h1 id='errors'>Errors</h1>
 <p><aside class="notice">This error section is stored in a separate file in <code class="prettyprint">includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the <code class="prettyprint">includes</code> folder and add them to the top of your <code class="prettyprint">index.md</code>&rsquo;s frontmatter. Files are included in the order listed.</aside></p>
