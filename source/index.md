@@ -51,6 +51,35 @@ address_attributes[:inner_number]| Attribute inside the address_attributes | Str
 
 `POST http://holavecino-dev.herokuapp.com/api/users/<ID>`
 
+## Update a User | Approve a User
+
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- | -----------
+first_name | First name of the user | String | No
+last_name | Last name of the user | String | No
+phone_number | Phone number of the user | String | No
+cellphone | Secondary number of the user | String | No
+avatar | Profile picture of the user(url) | File | No
+password | Password set by the user | String minimum 8 characters long | No
+password_confirmation | Password set by the user | Same as password | No
+address_attributes | A key in the hash to create the address on the same request | Json object | No
+address_attributes[:street_name] | A key in the hash to create the address on the same request | String | No
+address_attributes[:outer_number] | Attribute inside the address_attributes | String | No
+address_attributes[:inner_number]| Attribute inside the address_attributes | String | No
+approved | Boolean attribute the leader can change, if a user is
+
+> The format received by the API has this format:
+
+
+```json
+{"user"=>{"approved"=>true}, "id"=>"12", "controller"=>"api/v1/users", "action"=>"update"}
+
+```
+
+### HTTP Request
+
+`PUT/PATCH http://holavecino-dev.herokuapp.com/api/users/<ID>`
+
 ## Get a Specific User
 
 ```shell
@@ -207,15 +236,52 @@ This endpoint retrieves the current user's neighbors.
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
-http://holavecino-dev.herokuapp.com/api/neighbors
+http://holavecino-dev.herokuapp.com/api/pending
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-}
+    "users": [
+        {
+            "id": 41,
+            "email": "marlen.torp@sawaynkoepp.com",
+            "short_name": "Eladio Reichel",
+            "avatar": "avatar.png",
+            "is_leader?": false,
+            "approved": false
+        },
+        {
+            "id": 48,
+            "email": "bryon@kassulkewuckert.biz",
+            "short_name": "Junior Sipes",
+            "avatar": "avatar.png",
+            "is_leader?": false,
+            "approved": false
+        },
+        {
+            "id": 49,
+            "email": "chyna@rutherford.name",
+            "short_name": "Cathrine Mante",
+            "avatar": "avatar.png",
+            "is_leader?": false,
+            "approved": false
+        },
+        {
+            "id": 50,
+            "email": "aniya_strosin@murazik.us",
+            "short_name": "Payton Hilpert",
+            "avatar": "avatar.png",
+            "is_leader?": false,
+            "approved": false
+        }
+    ]
+    }
 ```
+### HTTP Request
+
+`GET http://holavecino-dev.herokuapp.com/api/pending`
 
 # Neighborhood
 
@@ -367,7 +433,6 @@ id | Any number will retrieve the current user's neighborhood | integer | Yes
 # Post
 
 ## Get all posts in the current neighborhood
-
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
@@ -598,7 +663,7 @@ Parameter | Description | Type      | Required
 id | Id of the post being commented on | Integer | Yes
 
 # Poll
-Poll works as an extension to Post, so a post is created with a each post
+Poll works as an extension to Post, so a post is created with a each poll
 
 ## Create a Poll
 
@@ -621,6 +686,40 @@ id | Id of the post being commented on | Integer |Yes
 photo | Picture to be posted  | File | No
 category_id | Id of the category the post belongs to | Integer | No
 
+## Get a specific poll
+
+```json
+{
+    "post": {
+        "id": 6,
+        "content": "Quo inventore cupiditate non velit velit ut ut.",
+        "created_at": "2014-11-25T17:05:23.317Z",
+        "likes": 0,
+        "category_name": null,
+        "liked": false,
+        "photo": null,
+        "user": {
+            "id": 39,
+            "email": "edward@schuppe.info",
+            "short_name": "Reynold Cartwright",
+            "avatar": "avatar.png",
+            "is_leader?": false,
+            "approved": false
+        },
+        "poll": {
+            "id": 1,
+            "question": "MyText",
+            "created_at": "2014-12-11T21:13:12.551Z",
+            "upvotes_percent": 50,
+            "downvotes_percent": 50
+        }
+    }
+}
+```
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/post/<ID>`
+
 ## Upvote a Poll
 
 > The format received by the API has this format:
@@ -642,6 +741,40 @@ id | Id of the post being commented on | Integer |Yes
 Parameter | Description | Type        | Required
 --------- | ----------- | ----------- | -----------
 id | Id of the post being commented on | Integer |Yes
+
+# Category
+
+## Get all categories
+
+```json
+{
+    "categories": [
+        {
+            "id": 2,
+            "name": "Crimen y Seguridad"
+        },
+        {
+            "id": 3,
+            "name": "Clasificados"
+        },
+        {
+            "id": 4,
+            "name": "General"
+        },
+        {
+            "id": 5,
+            "name": "Articulos perdidos"
+        },
+        {
+            "id": 6,
+            "name": "Recomendaciones"
+        }
+    ]
+}
+```
+### HTTP Request
+
+`GET http://holavecino-dev.herokuapp.com/api/categories`
 
 # Comment
 
@@ -775,4 +908,130 @@ Comment | Text inside the comment | Text | Yes
 Title | Title of comment | String | No
 Post_id | Id of the post being commented on | Integer | Yes
 
+# Tehuan Reports
+## Get all reports in a neighborhood
+```json
+{
+    "tehuan_reports": [
+        {
+            "id": 15,
+            "content": "Accidente en Miguel Aleman frente al Carls Jr",
+            "created_at": "2014-12-26T20:41:45.835Z",
+            "likes": 0,
+            "category_name": "Crime and Security",
+            "liked": false,
+            "photo": null,
+            "user": {
+                "id": 27,
+                "email": "alicia@icalialabs.com",
+                "short_name": "Alicia Gonzalez",
+                "avatar": null,
+                "is_leader?": true,
+                "approved": false
+            },
+            "poll": null
+        },
+        {
+            "id": 16,
+            "content": "Accidente en Miguel Aleman frente al Carls Jr",
+            "created_at": "2014-12-26T20:45:15.693Z",
+            "likes": 0,
+            "category_name": "Tehuan",
+            "liked": false,
+            "photo": null,
+            "user": {
+                "id": 27,
+                "email": "alicia@icalialabs.com",
+                "short_name": "Alicia Gonzalez",
+                "avatar": null,
+                "is_leader?": true,
+                "approved": false
+            },
+            "poll": null
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "per_page": 25,
+            "total_pages": 1,
+            "total_objects": 2
+        }
+    }
+}
+```
+This endpoint retrieves all the reports created on his/her neighborhood
 
+### HTTP Request
+
+`GET http://holavecino-dev.herokuapp.com/api/tehuan_reports`
+
+## Create a Tehuan Report
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/posts
+```
+> The format received by the API has this format:
+
+
+```json
+{"post"=>{"content"=>"Nihil eveniet quis laborum iste voluptatibus sed excepturi.", "tehuan_category"=>"ACCIDENTE"}, "controller"=>"api/v1/posts", "action"=>"create"}
+```
+
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/post`
+
+### URL Parameters
+
+Parameter | Description | Type        | Required
+--------- | ----------- | ----------- | -----------
+content | Text inside the post | Text | Yes
+photo | Picture to be posted  | File | No
+tehuan_category | Name of the category the report belongs to | String | No
+
+## Get Tehuan Categories
+
+```json
+{
+    "tehuan_reports": [
+        "ACCIDENTE",
+        "ALCANTARILLAS",
+        "ALUMBRADO PUBLICO",
+        "AUTO ABANDONADO",
+        "AVISOS",
+        "BACHE O VIA DAÑADA",
+        "DETENCION DE BANDAS",
+        "EMERGENCIAS",
+        "EVENTO PUBLICO",
+        "EXTORSION",
+        "FALTA ELECTRICIDAD",
+        "FUGA",
+        "HOMICIDIO",
+        "INCENDIO",
+        "MTYMUYBIEN",
+        "OBRAS Y/O VIA CERRADA",
+        "OBSERVADOR CIUDADANO",
+        "OTROS",
+        "PARQUES DESCUIDADOS",
+        "PERCEPCION DE INSEGURIDAD",
+        "PROPUESTA COMUNIDAD",
+        "PROPUESTA SEGURIDAD",
+        "PROPUESTA SERV PUBLICOS",
+        "PROPUESTA VIALIDAD",
+        "RECOLECCION DE BASURA",
+        "ROBO",
+        "ROBO AUTO",
+        "SECUESTRO",
+        "SEMAFORO DESCOMPUESTO",
+        "SITUACION DE RIESGO",
+        "SOSPECHOSO",
+        "VIALIDAD"
+    ]
+}
+```
+This endpoint retrieves the tehuan categories a tehuan report can have.
+
+### HTTP Request
+
+`GET http://holavecino-dev.herokuapp.com/api/tehuan_categories`
