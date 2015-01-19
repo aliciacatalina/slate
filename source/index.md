@@ -39,6 +39,7 @@ address_attributes | A key in the hash to create the address on the same request
 address_attributes[:street_name] | A key in the hash to create the address on the same request | String | Yes
 address_attributes[:outer_number] | Attribute inside the address_attributes | String | Yes
 address_attributes[:inner_number]| Attribute inside the address_attributes | String | No
+address_attributes[:neighborhood_id]| Id of the neighborhood the address is created on | Integer | Yes
 
 > The format received by the API has this format:
 
@@ -72,15 +73,25 @@ approved | Boolean attribute the leader can change, if a user is
 
 
 ```json
-{"user"=>{"approved"=>true}, "id"=>"12", "controller"=>"api/v1/users", "action"=>"update"}
-
+{"id"=>"9", "controller"=>"api/v1/users", "action"=>"destroy", "user"=>{}}
 ```
 
 ### HTTP Request
 
 `PUT/PATCH http://holavecino-dev.herokuapp.com/api/users/<ID>`
 
+## Reject a user | Destroy a user
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization: H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/users/25
+```
+### HTTP Request
+
+`DELETE http://holavecino-dev.herokuapp.com/api/users/<ID>`
+
 ## Get a Specific User
+
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization: H7QyAxevRRVHrkbLN9S-' \
@@ -576,16 +587,15 @@ http://holavecino-dev.herokuapp.com/api/posts
 
 ### HTTP Request
 
-`POST http://holavecino-dev.herokuapp.com/api/post`
+`POST http://holavecino-dev.herokuapp.com/api/posts`
 
 ### URL Parameters
 
 Parameter | Description | Type        | Required
 --------- | ----------- | ----------- | -----------
 content | Text inside the post | Text | Yes
-id | Id of the post being commented on | Integer |Yes
 photo | Picture to be posted  | File | No
-category_id | Id of the category the post belongs to | Integer | No
+category_id | Id of the category the post belongs to | Integer | Yes
 
 ## Like a Post
 
