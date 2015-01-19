@@ -114,6 +114,7 @@ http://holavecino-dev.herokuapp.com/api/users/25
        "cellphone": null,
        "neighborhood_id": 32,
        "is_leader?": true,
+       "pending_number": 9,
        "address":
        {
            "id": 28,
@@ -139,6 +140,14 @@ Parameter | Description | Type        | Required
 --------- | ----------- | ----------- |-----------
 ID | The ID of the user to retrieve | Integer | Yes
 
+## Get number of pending neighbors requests
+
+```
+9
+```
+This endpoint retrieves the number of pending requests a leader has.
+### HTTP Request
+`GET http://holavecino-dev.herokuapp.com/api/pending_count`
 
 ## Get Current user's neighbors
 
