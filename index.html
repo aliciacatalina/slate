@@ -135,6 +135,12 @@ Hola Vecino is an application that intends to unite the people by neighborhoods,
 <td>String</td>
 <td>No</td>
 </tr>
+<tr>
+<td>address_attributes[:neighborhood_id]</td>
+<td>Id of the neighborhood the address is created on</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
 </tbody></table>
 
 <blockquote>
@@ -230,11 +236,15 @@ Hola Vecino is an application that intends to unite the people by neighborhoods,
 <blockquote>
 <p>The format received by the API has this format:</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="s2">"user"</span><span class="err">=&gt;{</span><span class="s2">"approved"</span><span class="err">=&gt;true},</span><span class="w"> </span><span class="s2">"id"</span><span class="err">=&gt;</span><span class="s2">"12"</span><span class="err">,</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/users"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"update"</span><span class="err">}</span><span class="w">
-
+<pre><code class="highlight json"><span class="p">{</span><span class="s2">"id"</span><span class="err">=&gt;</span><span class="s2">"9"</span><span class="err">,</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/users"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"destroy"</span><span class="err">,</span><span class="w"> </span><span class="s2">"user"</span><span class="err">=&gt;{}}</span><span class="w">
 </span></code></pre>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">PUT/PATCH http://holavecino-dev.herokuapp.com/api/users/&lt;ID&gt;</code></p>
+<h2 id='reject-a-user--destroy-a-user'>Reject a user | Destroy a user</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization: H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
+http://holavecino-dev.herokuapp.com/api/users/25
+</code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">DELETE http://holavecino-dev.herokuapp.com/api/users/&lt;ID&gt;</code></p>
 <h2 id='get-a-specific-user'>Get a Specific User</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization: H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
 http://holavecino-dev.herokuapp.com/api/users/25
 </code></pre>
@@ -716,7 +726,7 @@ http://holavecino-dev.herokuapp.com/api/posts
 <pre><code class="highlight json"><span class="p">{</span><span class="s2">"post"</span><span class="err">=&gt;{</span><span class="s2">"content"</span><span class="err">=&gt;</span><span class="s2">"Nihil eveniet quis laborum iste voluptatibus sed excepturi."</span><span class="err">},</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/posts"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"create"</span><span class="err">}</span><span class="w">
 </span></code></pre>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/post</code></p>
+<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/posts</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -733,12 +743,6 @@ http://holavecino-dev.herokuapp.com/api/posts
 <td>Yes</td>
 </tr>
 <tr>
-<td>id</td>
-<td>Id of the post being commented on</td>
-<td>Integer</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>photo</td>
 <td>Picture to be posted</td>
 <td>File</td>
@@ -748,7 +752,7 @@ http://holavecino-dev.herokuapp.com/api/posts
 <td>category_id</td>
 <td>Id of the category the post belongs to</td>
 <td>Integer</td>
-<td>No</td>
+<td>Yes</td>
 </tr>
 </tbody></table>
 <h2 id='like-a-post'>Like a Post</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
