@@ -442,7 +442,7 @@ This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`GET http://holavecino-dev.herokuapp.com/api/neighborhood/<ID>`
+`GET http://holavecino-dev.herokuapp.com/api/neighborhoods/<ID>`
 
 ### URL Parameters
 
@@ -933,40 +933,52 @@ Post_id | Id of the post being commented on | Integer | Yes
 {
     "tehuan_reports": [
         {
-            "id": 15,
-            "content": "Accidente en Miguel Aleman frente al Carls Jr",
-            "created_at": "2014-12-26T20:41:45.835Z",
-            "likes": 0,
-            "category_name": "Crime and Security",
-            "liked": false,
-            "photo": null,
-            "user": {
-                "id": 27,
-                "email": "alicia@icalialabs.com",
-                "short_name": "Alicia Gonzalez",
-                "avatar": null,
-                "is_leader?": true,
-                "approved": false
-            },
-            "poll": null
-        },
-        {
             "id": 16,
             "content": "Accidente en Miguel Aleman frente al Carls Jr",
             "created_at": "2014-12-26T20:45:15.693Z",
-            "likes": 0,
-            "category_name": "Tehuan",
-            "liked": false,
             "photo": null,
+            "photo_width": null,
+            "photo_height": null,
+            "tehuan_category": "Accidente",
             "user": {
                 "id": 27,
                 "email": "alicia@icalialabs.com",
                 "short_name": "Alicia Gonzalez",
                 "avatar": null,
                 "is_leader?": true,
-                "approved": false
-            },
-            "poll": null
+                "approved": false,
+                "phone_number": "123456789",
+                "address": {
+                    "id": 28,
+                    "street_name": "Voyager",
+                    "outer_number": "405",
+                    "inner_number": ""
+                }
+            }
+        },
+        {
+            "id": 15,
+            "content": "Accidente en Miguel Aleman frente al Carls Jr",
+            "created_at": "2014-12-26T20:41:45.835Z",
+            "photo": null,
+            "photo_width": null,
+            "photo_height": null,
+            "tehuan_category": "",
+            "user": {
+                "id": 27,
+                "email": "alicia@icalialabs.com",
+                "short_name": "Alicia Gonzalez",
+                "avatar": null,
+                "is_leader?": true,
+                "approved": false,
+                "phone_number": "123456789",
+                "address": {
+                    "id": 28,
+                    "street_name": "Voyager",
+                    "outer_number": "405",
+                    "inner_number": ""
+                }
+            }
         }
     ],
     "meta": {
