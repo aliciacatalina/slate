@@ -1135,6 +1135,62 @@ http://holavecino-dev.herokuapp.com/api/comments/
 <td>Yes</td>
 </tr>
 </tbody></table>
+<h2 id='flag-a-comment'>Flag a comment</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
+http://holavecino-dev.herokuapp.com/api/comments/&lt;ID&gt;/toggle_flag
+</code></pre>
+
+<blockquote>
+<p>The format received by the API has this format:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="s2">"id"</span><span class="err">=&gt;</span><span class="s2">"12"</span><span class="err">,</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/comments"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"toggle_flag"</span><span class="err">,</span><span class="w"> </span><span class="s2">"post"</span><span class="err">=&gt;{}}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a specific user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/comments/&lt;ID&gt;/toggle_flag</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id of the post being commented on</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-comment'>Delete a Comment</h2><pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/vnd.holavecino.v1'</span> -H <span class="s1">'Authorization:  H7QyAxevRRVHrkbLN9S-'</span> <span class="se">\</span>
+http://holavecino-dev.herokuapp.com/api/comments/&lt;ID&gt;?post_id<span class="o">=</span>&lt;POST_ID&gt;
+</code></pre>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code class="prettyprint">DELETE http://holavecino-dev.herokuapp.com/api/comments/&lt;ID&gt;?post_id=&lt;POST_ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id of the comment</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>post_id</td>
+<td>Id of the post the comment belongs to</td>
+<td>Integer</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
 <h1 id='tehuan-reports'>Tehuan Reports</h1><h2 id='get-all-reports-in-a-neighborhood'>Get all reports in a neighborhood</h2><pre><code class="highlight json"><span class="p">{</span><span class="w">
     </span><span class="s2">"tehuan_reports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
