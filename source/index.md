@@ -109,7 +109,7 @@ http://holavecino-dev.herokuapp.com/api/users/25
        "first_name": "Alicia",
        "last_name": "Gonzalez",
        "auth_token": "H7QyAxevRRVHrkbLN9S-",
-       "avatar_url": null,
+       "avatar": null,
        "phone_number": "123456789",
        "cellphone": null,
        "neighborhood_id": 32,
@@ -166,7 +166,7 @@ http://holavecino-dev.herokuapp.com/api/neighbors
         "first_name": "Quinn",
         "last_name": "Schiller",
         "auth_token": "1zG4hS3B6etuJ8gECZhP",
-        "avatar_url": null,
+        "avatar": null,
         "phone_number": "235-369-4229 x028",
         "cellphone": null,
         "neighborhood_id": 42,
@@ -182,7 +182,7 @@ http://holavecino-dev.herokuapp.com/api/neighbors
         "first_name": "Pierce",
         "last_name": "Jast",
         "auth_token": "UbQAaHxD2PHGyofsuQLn",
-        "avatar_url": null,
+        "avatar": null,
         "phone_number": "1-389-937-2862 x534",
         "cellphone": null,
         "neighborhood_id": 42,
@@ -198,7 +198,7 @@ http://holavecino-dev.herokuapp.com/api/neighbors
         "first_name": "Enos",
         "last_name": "Volkman",
         "auth_token": "xyDPMCMyqBzwYE3s8oS4",
-        "avatar_url": null,
+        "avatar": null,
         "phone_number": "1-892-904-3903",
         "cellphone": null,
         "neighborhood_id": 42,
@@ -214,7 +214,7 @@ http://holavecino-dev.herokuapp.com/api/neighbors
         "first_name": "Faye",
         "last_name": "Ruecker",
         "auth_token": "25xUpDAQkWb1ukeeRsve",
-        "avatar_url": null,
+        "avatar": null,
         "phone_number": "466-975-0935 x508",
         "cellphone": null,
         "neighborhood_id": 42,
@@ -230,7 +230,7 @@ http://holavecino-dev.herokuapp.com/api/neighbors
         "first_name": "Everett",
         "last_name": "Casper",
         "auth_token": "ug6kGAWBF48zhyLavn2y",
-        "avatar_url": null,
+        "avatar": null,
         "phone_number": "1-384-614-1243",
         "cellphone": null,
         "neighborhood_id": 42,
@@ -809,81 +809,75 @@ http://holavecino-dev.herokuapp.com/api/comments/
 
 ```json
 {
-   "posts":
-   [
-       {
-           "id": 1,
-           "content": "Omnis ea eius quod eos.",
-           "user":
-           {
-               "id": 34,
-               "email": "esmeralda.emard@schmitt.co.uk",
-               "first_name": "Marshall",
-               "last_name": "Johnston",
-               "avatar_url": "/uploads/user/avatar/34/avatar.png"
-           }
-       },
-       {
-           "id": 2,
-           "content": "Id nihil saepe eum laboriosam.",
-           "user":
-           {
-               "id": 35,
-               "email": "stuart_rolfson@ritchie.com",
-               "first_name": "Issac",
-               "last_name": "Murray",
-               "avatar_url": "/uploads/user/avatar/35/avatar.png"
-           }
-       },
-       {
-           "id": 3,
-           "content": "Excepturi voluptatem inventore nam aperiam sunt et autem vitae.",
-           "user":
-           {
-               "id": 36,
-               "email": "jayde_oconner@lakinkertzmann.us",
-               "first_name": "Jennie",
-               "last_name": "Rohan",
-               "avatar_url": "/uploads/user/avatar/36/avatar.png"
-           }
-       },
-       {
-           "id": 4,
-           "content": "Velit omnis dignissimos molestias illo.",
-           "user":
-           {
-               "id": 37,
-               "email": "erna.durgan@zulauf.name",
-               "first_name": "Harry",
-               "last_name": "Bahringer",
-               "avatar_url": "/uploads/user/avatar/37/avatar.png"
-           }
-       },
-       {
-           "id": 5,
-           "content": "Inventore commodi corrupti iure earum quo.",
-           "user":
-           {
-               "id": 38,
-               "email": "leda@powlowskigraham.name",
-               "first_name": "Marquise",
-               "last_name": "Leffler",
-               "avatar_url": "/uploads/user/avatar/38/avatar.png"
-           }
-       },
-       {
-           "id": 6,
-           "content": "Quo inventore cupiditate non velit velit ut ut.",
-           "user":
-           {
-               "id": 39,
-               "email": "edward@schuppe.info",
-               "first_name": "Reynold",
-               "last_name": "Cartwright",
-               "avatar_url": "/uploads/user/avatar/39/avatar.png"
-           }
-       }
-   ]
+    "comments": [
+        {
+            "id": 6,
+            "comment": "\"comment\"",
+            "created_at": "2015-02-03T17:07:16.194Z",
+            "user": {
+                "id": 54,
+                "email": "zachery@durgan.name",
+                "short_name": "Reid Gislason",
+                "avatar": "avatar.png",
+                "is_leader?": false,
+                "approved": false,
+                "phone_number": "040-894-6418",
+                "address": {
+                    "id": 56,
+                    "street_name": "Mayert Trail",
+                    "outer_number": "44899",
+                    "inner_number": "Apt. 279"
+                }
+            }
+        },
+        {
+            "id": 7,
+            "comment": "This is a comment",
+            "created_at": "2015-02-03T17:15:43.651Z",
+            "user": {
+                "id": 54,
+                "email": "zachery@durgan.name",
+                "short_name": "Reid Gislason",
+                "avatar": "avatar.png",
+                "is_leader?": false,
+                "approved": false,
+                "phone_number": "040-894-6418",
+                "address": {
+                    "id": 56,
+                    "street_name": "Mayert Trail",
+                    "outer_number": "44899",
+                    "inner_number": "Apt. 279"
+                }
+            }
+        },
+        {
+            "id": 8,
+            "comment": "This is another comment",
+            "created_at": "2015-02-03T17:15:49.952Z",
+            "user": {
+                "id": 54,
+                "email": "zachery@durgan.name",
+                "short_name": "Reid Gislason",
+                "avatar": "avatar.png",
+                "is_leader?": false,
+                "approved": false,
+                "phone_number": "040-894-6418",
+                "address": {
+                    "id": 56,
+                    "street_name": "Mayert Trail",
+                    "outer_number": "44899",
+                    "inner_number": "Apt. 279"
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "per_page": 25,
+            "total_pages": 1,
+            "total_objects": 3
+        }
+    }
 }
 ```
 
@@ -897,7 +891,7 @@ This endpoint retrieves all posts of his/her neighborhood.
 
 Parameter | Description | Type | Required
 --------- | ----------- | ----------- | -----------
-Post_id | Id of the post's comments you want to retrieve | Integer | Yes
+post_id | Id of the post's comments you want to retrieve | Integer | Yes
 
 
 ## Create a comment
