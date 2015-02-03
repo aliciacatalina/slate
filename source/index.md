@@ -921,6 +921,49 @@ Comment | Text inside the comment | Text | Yes
 Title | Title of comment | String | No
 Post_id | Id of the post being commented on | Integer | Yes
 
+## Flag a comment
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/comments/<ID>/toggle_flag
+```
+
+> The format received by the API has this format:
+
+```json
+{"id"=>"12", "controller"=>"api/v1/comments", "action"=>"toggle_flag", "post"=>{}}
+```
+
+This endpoint retrieves a specific user.
+
+### HTTP Request
+
+`POST http://holavecino-dev.herokuapp.com/api/comments/<ID>/toggle_flag`
+
+### URL Parameters
+
+Parameter | Description | Type      | Required
+--------- | ----------- | --------- | -----------
+id | Id of the post being commented on | Integer | Yes
+
+## Delete a Comment
+
+```shell
+curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
+http://holavecino-dev.herokuapp.com/api/comments/<ID>?post_id=<POST_ID>
+```
+
+
+### HTTP Request
+
+`DELETE http://holavecino-dev.herokuapp.com/api/comments/<ID>?post_id=<POST_ID>`
+
+### URL Parameters
+
+Parameter | Description | Type      | Required
+--------- | ----------- | --------- | -----------
+id | Id of the comment | Integer | Yes
+post_id | Id of the post the comment belongs to | Integer | Yes
+
 # Tehuan Reports
 ## Get all reports in a neighborhood
 ```json
