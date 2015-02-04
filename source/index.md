@@ -1056,6 +1056,8 @@ Parameter | Description | Type        | Required
 --------- | ----------- | ----------- | -----------
 content | Text inside the post | Text | Yes
 photo | Picture to be posted  | File | No
+photo_height | Height of the photo | No
+photo_width | Width of the photo | No
 tehuan_category | Name of the category the report belongs to | String | No
 
 ## Get Tehuan Categories
