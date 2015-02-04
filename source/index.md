@@ -1037,18 +1037,18 @@ This endpoint retrieves all the reports created on his/her neighborhood
 
 ```shell
 curl -H 'Accept: application/vnd.holavecino.v1' -H 'Authorization:  H7QyAxevRRVHrkbLN9S-' \
-http://holavecino-dev.herokuapp.com/api/posts
+http://holavecino-dev.herokuapp.com/api/tehuan_reports
 ```
 > The format received by the API has this format:
 
 
 ```json
-{"post"=>{"content"=>"Nihil eveniet quis laborum iste voluptatibus sed excepturi.", "tehuan_category"=>"ACCIDENTE"}, "controller"=>"api/v1/posts", "action"=>"create"}
+{"tehuan_report"=>{"content"=>"Nihil eveniet quis laborum iste voluptatibus sed excepturi.", "tehuan_category"=>"ACCIDENTE"}, "controller"=>"api/v1/posts", "action"=>"create"}
 ```
 
 ### HTTP Request
 
-`POST http://holavecino-dev.herokuapp.com/api/post`
+`POST http://holavecino-dev.herokuapp.com/api/tehuan_reports`
 
 ### URL Parameters
 
