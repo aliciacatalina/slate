@@ -855,7 +855,7 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 <blockquote>
 <p>The format received by the API has this format:</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="s2">"poll"</span><span class="err">=&gt;{</span><span class="s2">"question"</span><span class="err">=&gt;</span><span class="s2">"Lorem ipsum thomas?"</span><span class="err">,</span><span class="w"> </span><span class="s2">"post_attributes"</span><span class="err">=&gt;{</span><span class="s2">"content"</span><span class="err">=&gt;</span><span class="s2">"Nobis quo quis culpa et ut alias."</span><span class="err">,</span><span class="w"> </span><span class="s2">"category_id"</span><span class="err">=&gt;</span><span class="s2">"1"</span><span class="err">}},</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/polls"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"create"</span><span class="err">}</span><span class="w">
+<pre><code class="highlight json"><span class="p">{</span><span class="s2">"poll"</span><span class="err">=&gt;{</span><span class="s2">"post_attributes"</span><span class="err">=&gt;{</span><span class="s2">"content"</span><span class="err">=&gt;</span><span class="s2">"Nobis quo quis culpa et ut alias."</span><span class="err">,</span><span class="w"> </span><span class="s2">"category_id"</span><span class="err">=&gt;</span><span class="s2">"1"</span><span class="err">}},</span><span class="w"> </span><span class="s2">"controller"</span><span class="err">=&gt;</span><span class="s2">"api/v1/polls"</span><span class="err">,</span><span class="w"> </span><span class="s2">"action"</span><span class="err">=&gt;</span><span class="s2">"create"</span><span class="err">}</span><span class="w">
 </span></code></pre>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code class="prettyprint">POST http://holavecino-dev.herokuapp.com/api/poll</code></p>
@@ -879,12 +879,6 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 <td>Id of the post being commented on</td>
 <td>Integer</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>photo</td>
-<td>Picture to be posted</td>
-<td>File</td>
-<td>No</td>
 </tr>
 <tr>
 <td>category_id</td>
