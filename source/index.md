@@ -716,19 +716,27 @@ category_id | Id of the category the post belongs to | Integer | No
         "likes": 0,
         "category_name": null,
         "liked": false,
+        "flagged": false,
         "photo": null,
+        "photo_width": null,
+        "photo_height": null,
+        "number_of_comments": 3,
         "user": {
             "id": 39,
             "email": "edward@schuppe.info",
             "short_name": "Reynold Cartwright",
             "avatar": "avatar.png",
             "is_leader?": false,
-            "approved": false
+            "approved": false,
+            "phone_number": "555.756.5036",
+            "address": {
+                "id": 40,
+                "street_name": "Durgan Loaf",
+                "outer_number": "342",
+                "inner_number": "Suite 862"
+            }
         },
         "poll": {
-            "id": 1,
-            "question": "MyText",
-            "created_at": "2014-12-11T21:13:12.551Z",
             "upvotes_percent": 50,
             "downvotes_percent": 50
         }
@@ -743,12 +751,12 @@ category_id | Id of the category the post belongs to | Integer | No
 
 > The format received by the API has this format:
 ```json
-{"id"=>"4", "controller"=>"api/v1/polls", "action"=>"upvote", "poll"=>{}}
+{"id"=>"6", "controller"=>"api/v1/polls", "action"=>"upvote", "poll"=>{}}
 ```
 
 Parameter | Description | Type        | Required
 --------- | ----------- | ----------- | -----------
-id | Id of the post being commented on | Integer |Yes
+id | Id of the POST being commented on | Integer |Yes
 
 ## Downvote a Poll
 
@@ -759,7 +767,7 @@ id | Id of the post being commented on | Integer |Yes
 
 Parameter | Description | Type        | Required
 --------- | ----------- | ----------- | -----------
-id | Id of the post being commented on | Integer |Yes
+id | Id of the POST being commented on | Integer |Yes
 
 # Category
 
