@@ -901,19 +901,27 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
         </span><span class="s2">"likes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"flagged"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"photo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"photo_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"photo_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_of_comments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"edward@schuppe.info"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reynold Cartwright"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avatar.png"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"is_leader?"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555.756.5036"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"street_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Durgan Loaf"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"outer_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"342"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"inner_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 862"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"poll"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyText"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-11T21:13:12.551Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"upvotes_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
             </span><span class="s2">"downvotes_percent"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -926,7 +934,7 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 <blockquote>
 <p>The format received by the API has this format:
 <code class="prettyprint">json
-{&quot;id&quot;=&gt;&quot;4&quot;, &quot;controller&quot;=&gt;&quot;api/v1/polls&quot;, &quot;action&quot;=&gt;&quot;upvote&quot;, &quot;poll&quot;=&gt;{}}
+{&quot;id&quot;=&gt;&quot;6&quot;, &quot;controller&quot;=&gt;&quot;api/v1/polls&quot;, &quot;action&quot;=&gt;&quot;upvote&quot;, &quot;poll&quot;=&gt;{}}
 </code></p>
 </blockquote>
 
@@ -940,7 +948,7 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Id of the post being commented on</td>
+<td>Id of the POST being commented on</td>
 <td>Integer</td>
 <td>Yes</td>
 </tr>
@@ -963,7 +971,7 @@ http://holavecino-dev.herokuapp.com/api/posts/&lt;ID&gt;
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Id of the post being commented on</td>
+<td>Id of the POST being commented on</td>
 <td>Integer</td>
 <td>Yes</td>
 </tr>
