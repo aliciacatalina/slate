@@ -689,7 +689,7 @@ Poll works as an extension to Post, so a post is created with a each poll
 > The format received by the API has this format:
 
 ```json
-{"poll"=>{"question"=>"Lorem ipsum thomas?", "post_attributes"=>{"content"=>"Nobis quo quis culpa et ut alias.", "category_id"=>"1"}}, "controller"=>"api/v1/polls", "action"=>"create"}
+{"poll"=>{"post_attributes"=>{"content"=>"Nobis quo quis culpa et ut alias.", "category_id"=>"1"}}, "controller"=>"api/v1/polls", "action"=>"create"}
 ```
 
 ### HTTP Request
@@ -702,7 +702,6 @@ Parameter | Description | Type        | Required
 --------- | ----------- | ----------- | -----------
 content | Text inside the post | Text | Yes
 id | Id of the post being commented on | Integer |Yes
-photo | Picture to be posted  | File | No
 category_id | Id of the category the post belongs to | Integer | No
 
 ## Get a specific poll
