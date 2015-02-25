@@ -303,6 +303,17 @@ http://holavecino-dev.herokuapp.com/api/pending
 
 `GET http://holavecino-dev.herokuapp.com/api/pending`
 
+## Reset password
+
+There will be no headers on this request
+
+This is not a json response, it will return html.
+
+### HTTP Request
+
+`GET http://holavecino-dev.herokuapp.com/users/password/new`
+
+
 # Neighborhood
 
 ## Neighborhoods index
