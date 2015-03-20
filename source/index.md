@@ -1077,6 +1077,8 @@ photo | Picture to be posted  | File | No
 photo_height | Height of the photo | No
 photo_width | Width of the photo | No
 tehuan_category | Name of the category the report belongs to | String | No
+lat | Latitude coordinate of the device | Float | No
+lng | Longitude coordinate of the device | Float | No
 
 ## Get Tehuan Categories
 
