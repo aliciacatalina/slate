@@ -420,7 +420,8 @@ This endpoint retrieves all neighborhoods on the server.
 
 Parameter | Description | Type      | Required
 --------- | ----------- | --------- |--------- |
-search | String to be search in the neighborhood's name | lowercase string | No
+search[name] | String to be searched in a neighborhoods's name | lowercase string | No
+search[postal_code] | Postal code to be searched | number | No
 
 
 ## Get a neighborhood profile
